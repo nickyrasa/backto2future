@@ -1,29 +1,8 @@
 <?php
 
-$presentTime = new DateTime();
-$destinationTime = DateTime::createFromFormat('m-d-Y H:i A', '10-21-2015 04:06 PM');
-$format = 'M-d-Y A g:i';
+$presentTime = new DateTime('2015-10-21 04:29:00');
+$destinationTime = new DateTime('2023-10-31 12:00:00');
 
-$diff = $presentTime->diff($destinationTime, true);
-
-?>
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>back2thefuture</title>
-</head>
-
-<body>
-
-    <p>Present time = <?= $presentTime->format($format) ?><br>
-        Destination time = <?= $destinationTime->format($format) ?>
-    </p>
-    <p>
-        <?= $diff->format("%y years %m months %d days %H hours %I minutes") ?>
-    </p>
-</body>
-
-</html>
+$formattedPresentTime = $presentTime->format('M-d-Y A g:i');
+$formattedDestinationTime = $destinationTime->format('M-d-Y A g:i');
+$interval = $presentTime->diff($destinationTime);
